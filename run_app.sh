@@ -23,6 +23,8 @@ docker-compose up -d
 echo "Checking running containers..."
 docker ps
 
+minikube start
+
 cd ./K8s
 
 kubectl apply -f postgres-pvc.yaml
@@ -32,3 +34,5 @@ kubectl apply -f react-app-service.yaml
 kubectl apply -f go-db-deployment.yaml
 kubectl apply -f go-app-deployment.yaml
 kubectl apply -f react-app-deployment.yaml
+
+minikube service react-app-external --url
